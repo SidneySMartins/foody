@@ -1,0 +1,5 @@
+{
+  "compilerOnSave": {
+    "baseUrl": "src"
+  }
+}
