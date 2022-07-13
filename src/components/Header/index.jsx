@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Container, StyledButton } from '../common/CommonStyle';
 import {
 	Hamburger,
@@ -6,15 +7,19 @@ import {
 	Wrapper,
 } from './HeaderStyle';
 import { GiHamburgerMenu } from 'react-icons/Gi';
+import NavBar from '../NavBar';
 
-const Header = () => {
+const Header = ({ setTheme }) => {
+	const [sideMenu, setSideMenu] = useState(false);
+
 	return (
 		<Wrapper>
 			<Container>
 				<HeaderContainer>
 					<HeaderTitle to='/'>Foody</HeaderTitle>
+					<NavBar setTheme={setTheme} sideMenu={sideMenu} />
 					<StyledButton>Reserve Table</StyledButton>
-					<Hamburger>
+					<Hamburger onClick={() => setSideMenu(!sideMenu)}>
 						<GiHamburgerMenu />
 					</Hamburger>
 				</HeaderContainer>
